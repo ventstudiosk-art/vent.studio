@@ -1,0 +1,6 @@
+{
+  "name": "VENT.STUDIO Booking",
+  "description": "Exkluzívny a vysoko responzívny rezervačný systém pre VENT.STUDIO s real-time kalendárom.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

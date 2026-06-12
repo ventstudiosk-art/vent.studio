@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;450;500;650;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-bg-dark: #060b1e;
+  --color-card-dark: rgba(14, 22, 49, 0.45);
+  --color-teal-accent: #2b6bf3; /* Royal rich blue like AirLume */
+  --color-teal-glow: rgba(43, 107, 243, 0.15);
+  
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  
+  --animate-border-glow: border-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes border-glow {
+  0% {
+    box-shadow: 0 0 5px rgba(78, 205, 196, 0.1), inset 0 0 5px rgba(78, 205, 196, 0.05);
+  }
+  100% {
+    box-shadow: 0 0 15px rgba(78, 205, 196, 0.3), inset 0 0 10px rgba(78, 205, 196, 0.1);
+  }
+}
+
+body {
+  background-color: #030816;
+  color: #f8fafc;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Beautiful Vertical column panel effects from AirLume mockup */
+.glowing-panel-backdrop {
+  background: 
+    linear-gradient(90deg, 
+      rgba(15, 32, 85, 0.1) 0%, 
+      transparent 1%, 
+      transparent 12%, 
+      rgba(15, 32, 85, 0.12) 13%, 
+      rgba(15, 32, 85, 0.12) 14%, 
+      transparent 15%, 
+      transparent 28%,
+      rgba(15, 32, 85, 0.1) 29%,
+      transparent 30%,
+      transparent 45%,
+      rgba(20, 40, 105, 0.14) 46%,
+      rgba(20, 40, 105, 0.14) 47%,
+      transparent 48%,
+      transparent 62%,
+      rgba(15, 32, 85, 0.12) 63%,
+      transparent 64%,
+      transparent 78%,
+      rgba(15, 32, 85, 0.15) 79%,
+      rgba(15, 32, 85, 0.15) 80%,
+      transparent 81%,
+      transparent 95%,
+      rgba(15, 32, 85, 0.1) 96%,
+      transparent 97%
+    ),
+    radial-gradient(ellipse at 50% -20%, rgba(37, 99, 235, 0.4) 0%, rgba(13, 14, 30, 0) 55%),
+    radial-gradient(ellipse at 10% 30%, rgba(43, 107, 243, 0.25) 0%, transparent 45%),
+    radial-gradient(circle at 90% 70%, rgba(78, 205, 196, 0.08) 0%, transparent 40%),
+    #050814;
+}
+
+/* Luxury Glassmorphic premium elements */
+.glass-airlume {
+  background: rgba(14, 21, 46, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-airlume-white {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  color: #060b21;
+}
+
+.glow-btn::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  background: linear-gradient(90deg, #3b82f6, #4ecdc4, #3b82f6);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.3;
+  filter: blur(5px);
+  transition: opacity 0.3s ease;
+}
+
+.glow-btn:hover::after {
+  opacity: 0.85;
+}
+
+/* Custom scrollbar for premium dark theme feel */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #030816;
+}
+::-webkit-scrollbar-thumb {
+  background: #141f40;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b82f6;
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VENT.STUDIO | Rezervačný Systém</title>
+    <script>
+      // Defensive bypass for sandboxed environments where window.fetch has only a getter.
+      // Prevent third parties/polyfills from throwing Uncaught TypeError on window.fetch assignment.
+      (function() {
+        try {
+          var originalFetch = window.fetch;
+          var desc = Object.getOwnPropertyDescriptor(window, 'fetch') || 
+                     Object.getOwnPropertyDescriptor(Object.getPrototypeOf(window), 'fetch');
+          if (desc && (!desc.writable || !desc.set)) {
+            var currentFetch = originalFetch;
+            Object.defineProperty(window, 'fetch', {
+              configurable: true,
+              enumerable: true,
+              get: function() {
+                return currentFetch;
+              },
+              set: function(val) {
+                currentFetch = val;
+                console.info('Successfully set custom window.fetch implementation.');
+              }
+            });
+          }
+        } catch (e) {
+          console.warn('Could not polyfill writable window.fetch descriptor:', e);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
